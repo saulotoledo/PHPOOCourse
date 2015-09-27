@@ -39,7 +39,14 @@
                     <?php
 
                     foreach ($viewVars->strings->fieldLabels as $field => $label) {
-                        echo sprintf('<label>%s:</label> %s<br />', $label, $viewVars->selected->$field);
+                        $fieldValue = $viewVars->selected->$field;
+
+                        if ($fieldValue != null) {
+                            if (isset($viewVars->strings->otherLabels->$fieldValue)) {
+                                $fieldValue = $viewVars->strings->otherLabels->$fieldValue;
+                            }
+                            echo sprintf('<label>%s:</label> %s<br />', $label, $fieldValue);
+                        }
                     }
 
                     ?>
@@ -63,9 +70,10 @@
                 <thead>
                     <tr>
                         <th>&nbsp;</th>
-                        <th><label><?php echo $viewVars->strings->fieldLabels->nome; ?></label></th>
+                        <th><label><?php echo $viewVars->strings->fieldLabels->nome_razaoSocial; ?></label></th>
                         <th><label><?php echo $viewVars->strings->fieldLabels->email; ?></label></th>
-                        <th><label><?php echo $viewVars->strings->fieldLabels->telefone; ?></label></th>
+                        <th class="fixed"><label><?php echo $viewVars->strings->fieldLabels->telefone; ?></label></th>
+                        <th><label><?php echo $viewVars->strings->fieldLabels->tipo; ?></label></th>
                     </tr>
                 </thead>
 
@@ -76,9 +84,17 @@
 
                     <tr>
                         <td><?php echo $cliente->id; ?></td>
-                        <td><a href="?id=<?php echo $key; ?>&order=<?php echo $viewVars->order; ?>"><?php echo $cliente->nome; ?></a></td>
+                        <td>
+                            <a href="?id=<?php echo $key; ?>&order=<?php echo $viewVars->order; ?>">
+                                <?php echo $cliente->nome_razaoSocial; ?>
+                            </a>
+                        </td>
                         <td><?php echo $cliente->email; ?></td>
                         <td><?php echo $cliente->telefone; ?></td>
+                        <td><?php
+                            $tipo = $cliente->tipo;
+                            echo $viewVars->strings->otherLabels->$tipo;
+                        ?></td>
                     </tr>
 
                     <?php endforeach; ?>
