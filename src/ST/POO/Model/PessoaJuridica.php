@@ -1,6 +1,6 @@
 <?php
 
-require_once 'ClienteAbstract.php';
+namespace ST\POO\Model;
 
 class PessoaJuridica extends ClienteAbstract
 {

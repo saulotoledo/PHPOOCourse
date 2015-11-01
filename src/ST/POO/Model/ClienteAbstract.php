@@ -1,7 +1,6 @@
 <?php
 
-require 'Interface/GrauDeImportanciaInterface.php';
-require 'Interface/EnderecoDeCobrancaInterface.php';
+namespace ST\POO\Model;
 
 abstract class ClienteAbstract implements GrauDeImportanciaInterface, EnderecoDeCobrancaInterface
 {

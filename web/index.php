@@ -1,7 +1,17 @@
 <?php
 
-require_once '../src/ST/POO/Model/PessoaFisica.php';
-require_once '../src/ST/POO/Model/PessoaJuridica.php';
+define('CLASS_DIR', __DIR__ . '/../src/');
+set_include_path(get_include_path() . PATH_SEPARATOR . CLASS_DIR);
+
+// The default spl_autoload() behavior lowercases the full path
+// and do not works as expected on some systems (e.g. GNU/Linux).
+// To fix this, we provide a custom autoload function:
+spl_autoload_register(function($name) {
+    include str_replace('\\', '/', $name) . '.php';
+});
+
+use ST\POO\Model\PessoaFisica;
+use ST\POO\Model\PessoaJuridica;
 
 $clientes = array(
     1  => new PessoaFisica('José',    'Rua Desconhecida, 001 - Centro', '(00) 0000-0001', 'jose@email.com',    '000.000.000/01', 3),
