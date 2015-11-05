@@ -90,4 +90,4 @@ if ($id && count($clientes) >= $id) {
     $viewVars->selected = $clientesInfo[$id];
 }
 
-include_once '../src/ST/POO/View/clients.php';
+include_once __DIR__. '/../src/ST/POO/View/clients.php';
