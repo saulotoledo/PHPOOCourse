@@ -67,4 +67,9 @@ class PessoaFisica extends ClienteAbstract
         $this->grauDeImportanciaInfo = $stars;
         return $this;
     }
+
+    public static function getAll()
+    {
+
+    }
 }

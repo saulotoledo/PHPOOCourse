@@ -4,6 +4,7 @@ namespace ST\POO\Model;
 
 abstract class ClienteAbstract implements GrauDeImportanciaInterface, EnderecoDeCobrancaInterface
 {
+    protected $id;
     protected $nome;
     protected $endereco;
     protected $enderecoDeCobranca;
@@ -12,6 +13,7 @@ abstract class ClienteAbstract implements GrauDeImportanciaInterface, EnderecoDe
     protected $grauDeImportanciaInfo;
 
     /**
+     * @param $id
      * @param $endereco
      * @param $telefone
      * @param $email
@@ -30,6 +32,24 @@ abstract class ClienteAbstract implements GrauDeImportanciaInterface, EnderecoDe
      * @return ClienteAbstract
      */
     public abstract function setGrauDeImportancia($stars);
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param mixed $id
+     * @return ClienteAbstract
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+        return $this;
+    }
 
     /**
      * @return mixed

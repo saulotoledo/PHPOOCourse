@@ -69,7 +69,7 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th>&nbsp;</th>
+                        <th>#</th>
                         <th><label><?php echo $viewVars->strings->fieldLabels->nome_razaoSocial; ?></label></th>
                         <th><label><?php echo $viewVars->strings->fieldLabels->email; ?></label></th>
                         <th class="fixed"><label><?php echo $viewVars->strings->fieldLabels->telefone; ?></label></th>
@@ -83,9 +83,9 @@
                     ?>
 
                     <tr>
-                        <td><?php echo $cliente->id; ?></td>
+                        <td><?php echo ($key + 1); ?></td>
                         <td>
-                            <a href="?id=<?php echo $key; ?>&order=<?php echo $viewVars->order; ?>">
+                            <a href="?id=<?php echo $cliente->id; ?>&tipo=<?php echo $cliente->tipo; ?>&order=<?php echo $viewVars->order; ?>">
                                 <?php echo $cliente->nome_razaoSocial; ?>
                             </a>
                         </td>
